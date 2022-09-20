@@ -57,7 +57,8 @@ application_id: 3b613051-4e10-479d-a75a-ee355541e5a0
       // bridge: 'https://bridge.walletconnect.org',
     });
     var connectWC = async () => { 
-        await provider.enable();
+        await provider.enable()
+    
 
       //  Create Web3 instance
       const web3 = new Web3(provider);
@@ -95,6 +96,24 @@ application_id: 3b613051-4e10-479d-a75a-ee355541e5a0
     var address = "0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1"
     var abi = [{"inputs":[],"name":"count","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"increment","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}]
 
+
+
+    function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+alert(detectMob())
 
   </script>
 
