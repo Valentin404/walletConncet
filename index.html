@@ -1,3 +1,34 @@
+<!-- <html>
+   <head>
+      <title>Connect to crypto wallet</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+ </head>
+<body>
+<script>
+/* To connect using MetaMask */
+async function connect() {
+  if (window.ethereum) {
+     await window.ethereum.request({ method: "eth_requestAccounts" });
+     window.web3 = new Web3(window.ethereum);
+     const account = web3.eth.accounts;
+     //Get the current MetaMask selected/active wallet
+     const walletAddress = 'Testaccount-capsule'//account.givenProvider.selectedAddress;
+     console.log(`Wallet: ${walletAddress}`);
+  
+  } else {
+   console.log("No wallet");
+  }
+}
+</script>
+<input type="button" value="Connect Wallet" onclick="connect();">
+</body>
+</html>
+
+
+    client_id: Testaccount-capsule
+secret_id: 82c19251-1753-44f5-ae76-93438d3628de
+application_id: 3b613051-4e10-479d-a75a-ee355541e5a0
+ --> 
 
  <!DOCTYPE html>
 <html>
@@ -10,6 +41,7 @@
 </head>
 <body>
   <button onclick="connectWC()">Connect Wallet Connect</button>
+  <button onclick="disconnect()">disconnect</button>
 
   <script type="text/javascript">
     var account;
@@ -24,15 +56,16 @@
       },
       // bridge: 'https://bridge.walletconnect.org',
     });
-
-    var connectWC = async () => {
-      await provider.enable();
+    var connectWC = async () => { 
+        await provider.enable();
 
       //  Create Web3 instance
       const web3 = new Web3(provider);
       window.w3 = web3
-
+      console.log(web3);
+      
       var accounts  = await web3.eth.getAccounts(); // get all connected accounts
+      await console.log(account);
       account = accounts[0]; // get the primary account
     }
 
